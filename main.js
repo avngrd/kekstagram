@@ -45,9 +45,9 @@ var names = [
 var photos = [];
 
 function getRandomNumber(minNumber, maxNumber) {
-    var min = Math.ceil(minNumber);
-    var max = Math.floor(maxNumber);
-    return Math.floor(Math.random() * (max - min)) + min;
+    var min = Math.floor(minNumber);
+    var max = Math.ceil(maxNumber);
+    return Math.ceil(Math.random() * (max - min)) + min;
 }
 
 for(var i = 0; i < photosNumber; i++) {
