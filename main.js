@@ -14,7 +14,7 @@ var commentsText = [
 var names = [
 'Alex',
 'Vadim',
-'Sergey',
+'Serg',
 'Ilya',
 'Alexander',
 'Mark',
