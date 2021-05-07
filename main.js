@@ -1,8 +1,13 @@
 'use strict'
 
-
-
 var photosNumber = 25;
+
+const minCommentsAmount = 2;
+const maxCommentsAmount =10;
+
+const minLikesAmount = 15;
+const maxLikesAmount = 200;
+
 var commentsText = [
     "Всё отлично!",
     "В целом все неплохо. Но не всё.",
@@ -14,7 +19,7 @@ var commentsText = [
 var names = [
 'Alex',
 'Vadim',
-'Serg',
+'Sergey',
 'Ilya',
 'Alexander',
 'Mark',
@@ -39,27 +44,23 @@ var names = [
 'Anna',
 'Vladimir',
 ];
-
-
-
 var photos = [];
-
-function getRandomNumber(minNumber, maxNumber) {
-    var min = Math.floor(minNumber);
-    var max = Math.ceil(maxNumber);
-    return Math.ceil(Math.random() * (max - min)) + min;
+    function getRandomNumber(margNumber, peakNumber) {
+        var marg = Math.ceil(margNumber);
+        var peak = Math.floor(peakNumber);
+    return Math.floor(Math.random() * (peak - marg)) + marg;
 }
 
 for(var i = 0; i < photosNumber; i++) {
     var randomComments = [];
-    var randomName = names[getRandomNumber(0, names.length - 1)];
-    for(var x = 0; x < getRandomNumber(2, 10); x++) {
-        randomComments[x] = commentsText[getRandomNumber(0, commentsText.length - 1)];
+    var randomName = names[getRandomNumber(0, names.length)];
+    for(let x = 0; x < getRandomNumber(minCommentsAmount,maxCommentsAmount); x++) {
+        randomComments[x] = commentsText[getRandomNumber(0, commentsText.length )];
     }
     var url = i + 1;
     photos[i] = {
         url: "photos/" + url + ".jpg",
-        likes: getRandomNumber(15, 200),
+        likes: getRandomNumber(minLikesAmount,maxLikesAmount),
         comments: randomComments,
         name: randomName
     };
