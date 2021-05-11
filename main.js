@@ -3,7 +3,7 @@
 var photosNumber = 25;
 
 const minCommentsAmount = 2;
-const maxCommentsAmount =10;
+const maxCommentsAmount = 10;
 
 const minLikesAmount = 15;
 const maxLikesAmount = 200;
@@ -45,10 +45,8 @@ var names = [
 'Vladimir',
 ];
 var photos = [];
-    function getRandomNumber(margNumber, peakNumber) {
-        var marg = Math.ceil(margNumber);
-        var peak = Math.floor(peakNumber);
-    return Math.floor(Math.random() * (peak - marg)) + marg;
+ var getRandomNumber = function(min,max) {
+    return Math.floor(Math.random() * (max - min  )) + min;
 }
 
 for(var i = 0; i < photosNumber; i++) {
