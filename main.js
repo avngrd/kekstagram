@@ -1,14 +1,14 @@
 'use strict'
 
-var photosNumber = 25;
+var PHOTOS_NUMBER = 25;
 
-const minCommentsAmount = 2;
-const maxCommentsAmount = 10;
+const MIN_COMMENTS_AMOUNT = 2;
+const MAX_COMMENTS_AMOUNT = 10;
 
-const minLikesAmount = 15;
-const maxLikesAmount = 200;
+const MIN_LIKES_AMOUNT = 15;
+const MAX_LIKES_AMOUNT = 200;
 
-var commentsText = [
+var COMMENTS_TEXT = [
 "Всё отлично!",
 "В целом все неплохо. Но не всё.",
 "Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.",
@@ -16,7 +16,8 @@ var commentsText = [
 "Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.",
 "Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!"
 ];
-var names = [
+
+var NAMES = [
 'Alex',
 'Vadim',
 'Sergey',
@@ -44,23 +45,28 @@ var names = [
 'Anna',
 'Vladimir',
 ];
+
 var photos = [];
-var getRandomNumber = function(min,max) {
-  return Math.floor(Math.random() * (max - min  )) + min;
+
+var getRandomNumber = function(min, max) {
+  return Math.floor(Math.random () * (max - min)) + min;
 }
 
-for(var i = 0; i < photosNumber; i++) {
- var randomComments = [];
- var randomName = names[getRandomNumber(0, names.length)];
-for(let x = 0; x < getRandomNumber(minCommentsAmount,maxCommentsAmount); x++) {
-  randomComments[x] = commentsText[getRandomNumber(0, commentsText.length )];
-    }
- var url = i + 1;
-  photos[i] = {
-   url: "photos/" + url + ".jpg",
-   likes: getRandomNumber(minLikesAmount,maxLikesAmount),
-   comments: randomComments,
-   name: randomName
+for (let i = 0; i < PHOTOS_NUMBER; i++) {
+  var randomName = NAMES[getRandomNumber(0, NAMES.length)];
+
+  var randomComments = [];
+for (let x = 0; x < getRandomNumber(MIN_COMMENTS_AMOUNT, MAX_COMMENTS_AMOUNT); x++) {
+  randomComments[x] = COMMENTS_TEXT[getRandomNumber(0, COMMENTS_TEXT.length )];
+}
+
+var url = i + 1;
+
+photos[i] = {
+url: "photos/" + url + ".jpg",
+likes: getRandomNumber(MIN_LIKES_AMOUNT, MAX_LIKES_AMOUNT),
+comments: randomComments,
+name: randomName
     };
 }
 
