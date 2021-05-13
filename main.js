@@ -60,7 +60,7 @@ for (let x = 0; x < getRandomNumber(MIN_COMMENTS_AMOUNT, MAX_COMMENTS_AMOUNT); x
   randomComments[x] = COMMENTS_TEXT[getRandomNumber(0, COMMENTS_TEXT.length )];
 }
 
-var url = i + 1;
+  var url = i + 1;
 
 photos[i] = {
 url: "photos/" + url + ".jpg",
