@@ -63,18 +63,12 @@ for (let x = 0; x < randomCommentsNumber; x++) {
 
   var url = i + 1;
 
-photos[i] = {
-url: "photos/" + url + ".jpg",
-likes: getRandomNumber(MIN_LIKES_AMOUNT, MAX_LIKES_AMOUNT),
-comments: randomComments,
-name: randomName
+  photos[i] = {
+  url: "photos/" + url + ".jpg",
+  likes: getRandomNumber(MIN_LIKES_AMOUNT, MAX_LIKES_AMOUNT),
+  comments: randomComments,
+  name: randomName
     };
 }
 
 console.log(photos);
-
-
-
-
-
-		
