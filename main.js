@@ -53,15 +53,15 @@ var getRandomNumber = function(min, max) {
 }
 
 for (let i = 0; i < PHOTOS_NUMBER; i++) {
-  var randomName = NAMES[getRandomNumber(0, NAMES.length)];
+   var randomName = NAMES[getRandomNumber(0, NAMES.length)];
 
-  var randomComments = [];
-  var randomCommentsNumber = getRandomNumber(MIN_COMMENTS_AMOUNT, MAX_COMMENTS_AMOUNT);
+   var randomComments = [];
+   var randomCommentsNumber = getRandomNumber(MIN_COMMENTS_AMOUNT, MAX_COMMENTS_AMOUNT);
 for (let x = 0; x < randomCommentsNumber; x++) {
-  randomComments[x] = COMMENTS_TEXT[getRandomNumber(0, COMMENTS_TEXT.length )];
+   randomComments[x] = COMMENTS_TEXT[getRandomNumber(0, COMMENTS_TEXT.length )];
 }
 
-  var url = i + 1;
+   var url = i + 1;
 
   photos[i] = {
   url: "photos/" + url + ".jpg",
