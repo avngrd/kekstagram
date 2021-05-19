@@ -17,6 +17,16 @@ var COMMENTS_TEXT = [
 "Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!"
 ];
 
+var DESCRIPTION_TEXT = [
+"Тестим новую камеру!",
+"Затусили с друзьями на море",
+"Как же круто тут кормят",
+"Отдыхаем...",
+"Цените каждое мгновенье. Цените тех, кто рядом с вами и отгоняйте все сомненья. Не обижайте всех словами......",
+"Вот это тачка!"
+];
+
+
 var NAMES = [
 'Alex',
 'Vadim',
@@ -61,13 +71,19 @@ for (let x = 0; x < randomCommentsNumber; x++) {
    randomComments[x] = COMMENTS_TEXT[getRandomNumber(0, COMMENTS_TEXT.length )];
 }
 
+   var  randomDescription = [];
+   var  randomDescriptionNumber = getRandomNumber();
+for (let J = 0; J < randomCommentsNumber; J++) {
+   randomDescription[J] = DESCRIPTION_TEXT[getRandomNumber(0, DESCRIPTION_TEXT.length )];
+}
    var url = i + 1;
 
   photos[i] = {
   url: "photos/" + url + ".jpg",
   likes: getRandomNumber(MIN_LIKES_AMOUNT, MAX_LIKES_AMOUNT),
   comments: randomComments,
-  name: randomName
+  name: randomName,
+  description: randomDescription
     };
 }
 
