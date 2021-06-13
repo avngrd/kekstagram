@@ -2,11 +2,11 @@
 
 var PHOTOS_NUMBER = 25;
 
-const MIN_COMMENTS_AMOUNT = 2;
-const MAX_COMMENTS_AMOUNT = 10;
+var MIN_COMMENTS_AMOUNT = 2;
+var MAX_COMMENTS_AMOUNT = 10;
 
-const MIN_LIKES_AMOUNT = 15;
-const MAX_LIKES_AMOUNT = 200;
+var MIN_LIKES_AMOUNT = 15;
+var MAX_LIKES_AMOUNT = 200;
 
 var COMMENTS_TEXT = [
 "Всё отлично!",
@@ -62,29 +62,73 @@ var getRandomNumber = function(min, max) {
   return Math.floor(Math.random () * (max - min)) + min;
 }
 
-for (let i = 0; i < PHOTOS_NUMBER; i++) {
-   var randomName = NAMES[getRandomNumber(0, NAMES.length)];
+for (var i = 0; i < PHOTOS_NUMBER; i++) {
+      var randomName = NAMES[getRandomNumber(0, NAMES.length)];
+      var randomCommentsNumber = getRandomNumber(MIN_COMMENTS_AMOUNT, MAX_COMMENTS_AMOUNT);
 
-   var randomComments = [];
-   var randomCommentsNumber = getRandomNumber(MIN_COMMENTS_AMOUNT, MAX_COMMENTS_AMOUNT);
-for (let x = 0; x < randomCommentsNumber; x++) {
-   randomComments[x] = COMMENTS_TEXT[getRandomNumber(0, COMMENTS_TEXT.length )];
-}
+      function renderComments() {
+         var comments = [];
 
-   var  randomDescription = [];
-   var  randomDescriptionNumber = getRandomNumber();
-for (let J = 0; J < randomCommentsNumber; J++) {
-   randomDescription[J] = DESCRIPTION_TEXT[getRandomNumber(0, DESCRIPTION_TEXT.length )];
-}
-   var url = i + 1;
+         for (var x = 0; x < randomCommentsNumber;x++){
+            comments.push(COMMENTS_TEXT[getRandomNumber(0,COMMENTS_TEXT.length)]);
+         }
 
-  photos[i] = {
-  url: "photos/" + url + ".jpg",
-  likes: getRandomNumber(MIN_LIKES_AMOUNT, MAX_LIKES_AMOUNT),
-  comments: randomComments,
-  name: randomName,
-  description: randomDescription
-    };
+         return comments;
+      } 
+   
+
+      var  randomDescription = [];
+      var  randomDescriptionNumber = getRandomNumber();
+   for (var J = 0; J < randomCommentsNumber; J++) {
+      randomDescription[J] = DESCRIPTION_TEXT[getRandomNumber(0, DESCRIPTION_TEXT.length )];
+   }
+      var url = i + 1;
+
+      photos[i] = {
+         url: "photos/" + url + ".jpg",
+         likes: getRandomNumber(MIN_LIKES_AMOUNT, MAX_LIKES_AMOUNT),
+         comments: renderComments(),
+         name: randomName,
+         description: randomDescription
+      };
 }
 
 console.log(photos);
+
+
+var template = document.querySelector('#picture').content.querySelector('.picture');
+var fragment = document.createDocumentFragment();
+var pictureWrap = document.querySelector('.pictures');
+
+for (var i = 0; i < PHOTOS_NUMBER; i++) {
+   var picture = template.cloneNode(true);
+
+   picture.querySelector('.picture__img').src = photos[i].url;
+   picture.querySelector('.picture__comments').textContent = photos[i].comments.length;
+   picture.querySelector('.picture__likes').textContent = photos[i].likes;
+
+   fragment.appendChild(picture);
+}
+
+pictureWrap.appendChild(fragment);
+
+console.log(pictureWrap)
+
+
+var bPicture = document.querySelector('.big-picture');
+bPicture.classList.remove('hidden');
+
+var button = document.querySelector('big-picture__img');
+var onButtonClick = function() {
+
+   bigPicture.querySelector('.big-picture__img').src = photos[i].url;
+   bigPicture.querySelector('.likes-count').textContent = photos[i].likes;
+   bigPicture.querySelector('.comments-count').textContent = photos[i].comments;
+
+   fragment.appendChild(bigPicture);
+
+};
+
+bigPicture.appendChild(fragment)
+
+console.log(bigPicture)
