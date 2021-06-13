@@ -115,11 +115,10 @@ pictureWrap.appendChild(fragment);
 console.log(pictureWrap)
 
 
-var bPicture = document.querySelector('.big-picture');
-bPicture.classList.remove('hidden');
+var showPicture = document.querySelector('.big-picture');
+showPicture.classList.remove('hidden');
 
-var button = document.querySelector('big-picture__img');
-var onButtonClick = function() {
+for (var i = 0; i < PHOTOS_NUMBER; i++)  {
 
    bigPicture.querySelector('.big-picture__img').src = photos[i].url;
    bigPicture.querySelector('.likes-count').textContent = photos[i].likes;
