@@ -128,6 +128,6 @@ function showBigPhoto(bigPhotoNumber){
 }
    function renderBigPhoto() {
       bigPhotoData.classList.remove('hidden');
-      bighotoData.querySelector('.social__comment-count').classList.add('visually-hidden');
+      bigPhotoData.querySelector('.social__comment-count').classList.add('visually-hidden');
       bigPhotoData.querySelector('.comments-loader').classList.add('visually-hidden');
    } 
