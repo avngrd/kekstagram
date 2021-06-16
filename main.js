@@ -117,16 +117,8 @@ console.log(pictureWrap)
 var bigPhotoNumber  = 0;
 showBigPhoto(bigPhotoNumber);
 
-function showBigPhoto() {
-   bigPhotoData.classList.remove('hidden');
-   bigPhotoData.querySelector('.social__comment-count').classList.add('visually-hidden');
-   bigPhotoData.querySelector('.comments-loader').classList.add('visually-hidden');
-  
-}
-
 function showBigPhoto(bigPhotoNumber){
    var bigPhotoData = document.querySelector('.big-picture');
-
    function renderPhotoData() {
       bigPhotoData.querySelector('.big-picture__img').src = photos[bigPhotoNumber].url;
       bigPhotoData.querySelector('.social__caption').textContent = photos[bigPhotoNumber].description;
@@ -134,5 +126,9 @@ function showBigPhoto(bigPhotoNumber){
       bigPhotoData.querySelector('.comments-count').textContent = photos[bigPhotoNumber].comments.length;
    }
 }
-   
+   function renderBigPhoto() {
+      bigPhotoData.classList.remove('hidden');
+      bigPhotoData.querySelector('.social__comment-count').classList.add('visually-hidden');
+      bigPhotoData.querySelector('.comments-loader').classList.add('visually-hidden');
+   }
    
