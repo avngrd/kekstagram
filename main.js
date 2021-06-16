@@ -26,7 +26,6 @@ var DESCRIPTION_TEXT = [
 "Вот это тачка!"
 ];
 
-
 var NAMES = [
 'Alex',
 'Vadim',
@@ -115,19 +114,25 @@ pictureWrap.appendChild(fragment);
 console.log(pictureWrap)
 
 
-var showPicture = document.querySelector('.big-picture');
-showPicture.classList.remove('hidden');
+var bigPhotoNumber  = 0;
+showBigPhoto(bigPhotoNumber);
 
-for (var i = 0; i < PHOTOS_NUMBER; i++)  {
+function showBigPhoto() {
+   bigPhotoData.classList.remove('hidden');
+   bigPhotoData.querySelector('.social__comment-count').classList.add('visually-hidden');
+   bigPhotoData.querySelector('.comments-loader').classList.add('visually-hidden');
+  
+}
 
-   bigPicture.querySelector('.big-picture__img').src = photos[i].url;
-   bigPicture.querySelector('.likes-count').textContent = photos[i].likes;
-   bigPicture.querySelector('.comments-count').textContent = photos[i].comments;
+function showBigPhoto(bigPhotoNumber){
+   var bigPhotoData = document.querySelector('.big-picture');
 
-   fragment.appendChild(bigPicture);
-
-};
-
-bigPicture.appendChild(fragment)
-
-console.log(bigPicture)
+   function renderPhotoData() {
+      bigPhotoData.querySelector('.big-picture__img').src = photos[bigPhotoNumber].url;
+      bigPhotoData.querySelector('.social__caption').textContent = photos[bigPhotoNumber].description;
+      bigPhotoData.querySelector('.likes-count').textContent = photos[bigPhotoNumber].likes;
+      bigPhotoData.querySelector('.comments-count').textContent = photos[bigPhotoNumber].comments.length;
+   }
+}
+   
+   
